@@ -51,7 +51,7 @@ document.addEventListener('alpine:init', () => {
                 this.filmImageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
                 this.movieTitle = movie.title;
                 this.movieOverview = movie.overview;
-                this.randomMovieId = movie.id; // randomMovieId değişkenini ayarla
+                this.randomMovieId = movie.id;
             } catch (error) {
                 console.error('Error fetching random movie:', error);
             }
