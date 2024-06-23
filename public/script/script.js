@@ -9,11 +9,11 @@ document.addEventListener('alpine:init', () => {
         movieOverview: '',
         async fetchMovies() {
             try {
-                let response = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=1ee76937d4b67dd4b4747ef81c88470a');
+                let response = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=<>');
                 let data = await response.json();
                 this.popularMovies = data.results;
 
-                response = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=1ee76937d4b67dd4b4747ef81c88470a');
+                response = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=<>');
                 data = await response.json();
                 this.topRatedMovies = data.results;
             } catch (error) {
@@ -31,7 +31,7 @@ document.addEventListener('alpine:init', () => {
                     'Documentary': 99
                 };
                 const genreId = genreMap[category];
-                const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=1ee76937d4b67dd4b4747ef81c88470a&with_genres=${genreId}`);
+                const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=<>&with_genres=${genreId}`);
                 const data = await response.json();
                 this.categoryMovies = data.results;
             } catch (error) {
@@ -39,7 +39,7 @@ document.addEventListener('alpine:init', () => {
             }
         },
         async fetchRandomMovie() {
-            const apiKey = '1ee76937d4b67dd4b4747ef81c88470a';
+            const apiKey = '';
             const randomPage = Math.floor(Math.random() * 10);
             const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${randomPage}`;
             
@@ -72,7 +72,7 @@ document.addEventListener('alpine:init', () => {
         movieId: window.location.pathname.split('/').pop(),
         async fetchMovieDetails() {
             const movieId = this.$el.getAttribute('x-data').match(/(\d+)/)[0];
-            const apiKey = '1ee76937d4b67dd4b4747ef81c88470a';
+            const apiKey = '';
             const apiUrl = `https://api.themoviedb.org/3/movie/${this.movieId}?api_key=${apiKey}`;
         
             try {
